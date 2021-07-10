@@ -1,13 +1,13 @@
 def ansible = [:]
          ansible.name = 'ansible'
          ansible.host = '172.31.5.51'
-         ansible.user = 'centos'
+         ansible.user = 'root'
          ansible.password = 'Rnstech@123'
          ansible.allowAnyHosts = true
 def kops = [:]
          kops.name = 'kops'
          kops.host = '172.31.14.84'
-         kops.user = 'centos'
+         kops.user = 'root'
          kops.password = 'Rnstech@123'
          kops.allowAnyHosts = true
 pipeline {
