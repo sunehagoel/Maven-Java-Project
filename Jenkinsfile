@@ -57,11 +57,11 @@ pipeline {
         
           steps{
 	      unstash 'Source'
-              sh "mvn clean package"  
+              //sh "mvn clean package"  
           }
           post{
               success{
-                  archiveArtifacts '**/*.war'
+                  //archiveArtifacts '**/*.war'
               }
           }
       }
