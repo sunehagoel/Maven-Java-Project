@@ -64,6 +64,12 @@ pipeline {
                   archiveArtifacts '**/*.war'
               }
           }
-      }  
+      }
+      stage('Build Docker Image') {
+         
+         steps{
+                  sh "docker build -t sunehagoel/webapp ."  
+         }
+     }    
     }    
 }    
