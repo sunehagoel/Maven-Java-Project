@@ -70,6 +70,16 @@ pipeline {
          steps{
                   sh "docker build -t sunehagoel/webapp ."  
          }
-     }    
+     }
+     stage('Publish Docker Image') {
+         
+        steps{
+
+    	      withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUser')]) {
+    		    sh "docker login -u ${dockerUser} -p ${dockerPassword}"
+	      }
+        	sh "docker push gvenkat/webapp1"
+         }
+    }    
     }    
 }    
