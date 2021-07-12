@@ -40,5 +40,18 @@ pipeline {
            sshCommand remote: kops, command: "kubectl apply -f Maven-Java-Project/k8s-code/prod/namespace/prod-ns.yml"
             }            
         }
+        stage('Unit Test Cases') {
+         
+          steps{
+              echo "Clean and Test"
+              sh "mvn clean test"  
+          }
+          post{
+            success{
+                  echo "Clean and Test"
+                  junit 'target/surefire-reports/*.xml'
+            }
+          }
+        }   
     }    
 }    
